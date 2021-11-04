@@ -1,33 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Felipe\\Documents\\Projetos\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj": {}
+    "F:\\Documents\\dotnet\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Felipe\\Documents\\Projetos\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj": {
+    "F:\\Documents\\dotnet\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Felipe\\Documents\\Projetos\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj",
+        "projectUniqueName": "F:\\Documents\\dotnet\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj",
         "projectName": "TeamWorkAlarmaq",
-        "projectPath": "C:\\Users\\Felipe\\Documents\\Projetos\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Felipe\\Documents\\Projetos\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\obj\\",
+        "projectPath": "F:\\Documents\\dotnet\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\TeamWorkAlarmaq.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "F:\\Documents\\dotnet\\TeamWorkAlarmaq\\TeamWorkAlarmaq\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
