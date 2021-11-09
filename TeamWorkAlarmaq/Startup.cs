@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TeamWorkAlarmaq.Data;
 
 namespace TeamWorkAlarmaq
 {
@@ -23,6 +25,10 @@ namespace TeamWorkAlarmaq
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetSection("ConnectionStrings:DefaultConnection");
+            services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString.Value));
+            services.AddScoped<Context, Context>();
+
             services.AddControllersWithViews();
         }
 

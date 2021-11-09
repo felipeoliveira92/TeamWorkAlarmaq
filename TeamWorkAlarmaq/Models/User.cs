@@ -7,6 +7,6 @@ namespace TeamWorkAlarmaq.Models
         public string Email { get; set; }
         public string PassWord { get; set; }
         public int GroupId { get; set; }
-        public Group Group { get; set; }
+        public Group Group { get; set; }        
     }
 }
