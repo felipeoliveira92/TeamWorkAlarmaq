@@ -12,9 +12,9 @@ namespace TeamWorkAlarmaq
 {
     public class TodoController : Controller
     {
-        private readonly Context _context;
+        private readonly AplicationContext _context;
 
-        public TodoController(Context context)
+        public TodoController(AplicationContext context)
         {
             _context = context;
         }
@@ -22,8 +22,7 @@ namespace TeamWorkAlarmaq
         // GET: Todo
         public async Task<IActionResult> Index()
         {
-            var context = _context.Todos.Include(t => t.Comment).Include(t => t.User);
-            return View(await context.ToListAsync());
+            return View(await _context.Todos.ToListAsync());
         }
 
         // GET: Todo/Details/5
@@ -35,8 +34,6 @@ namespace TeamWorkAlarmaq
             }
 
             var todo = await _context.Todos
-                .Include(t => t.Comment)
-                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (todo == null)
             {
@@ -49,8 +46,6 @@ namespace TeamWorkAlarmaq
         // GET: Todo/Create
         public IActionResult Create()
         {
-            ViewData["CommentId"] = new SelectList(_context.Comments, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -59,7 +54,7 @@ namespace TeamWorkAlarmaq
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Status,DateInitial,DateEnd,UserId,CommentId")] Todo todo)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Status,DateInitial,DateEnd,User,Comment")] Todo todo)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +62,6 @@ namespace TeamWorkAlarmaq
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CommentId"] = new SelectList(_context.Comments, "Id", "Id", todo.CommentId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", todo.UserId);
             return View(todo);
         }
 
@@ -85,8 +78,6 @@ namespace TeamWorkAlarmaq
             {
                 return NotFound();
             }
-            ViewData["CommentId"] = new SelectList(_context.Comments, "Id", "Id", todo.CommentId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", todo.UserId);
             return View(todo);
         }
 
@@ -95,7 +86,7 @@ namespace TeamWorkAlarmaq
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Status,DateInitial,DateEnd,UserId,CommentId")] Todo todo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Status,DateInitial,DateEnd,User,Comment")] Todo todo)
         {
             if (id != todo.Id)
             {
@@ -122,8 +113,6 @@ namespace TeamWorkAlarmaq
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CommentId"] = new SelectList(_context.Comments, "Id", "Id", todo.CommentId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", todo.UserId);
             return View(todo);
         }
 
@@ -136,8 +125,6 @@ namespace TeamWorkAlarmaq
             }
 
             var todo = await _context.Todos
-                .Include(t => t.Comment)
-                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (todo == null)
             {

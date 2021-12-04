@@ -26,8 +26,8 @@ namespace TeamWorkAlarmaq
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetSection("ConnectionStrings:DefaultConnection");
-            services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString.Value));
-            services.AddScoped<Context, Context>();
+            services.AddDbContext<AplicationContext>(opt => opt.UseSqlServer(connectionString.Value));
+            services.AddScoped<AplicationContext, AplicationContext>();
 
             services.AddControllersWithViews();
         }

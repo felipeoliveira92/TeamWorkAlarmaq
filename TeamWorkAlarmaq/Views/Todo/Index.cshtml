@@ -61,10 +61,10 @@
                 @Html.DisplayFor(modelItem => item.DateEnd)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.User)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Comment.Id)
+                @Html.DisplayFor(modelItem => item.Comment)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
