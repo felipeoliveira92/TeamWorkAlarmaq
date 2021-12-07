@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamWorkAlarmaq.Data;
 
 namespace TeamWorkAlarmaq.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20211207192944_alter status e remove description")]
+    partial class alterstatuseremovedescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

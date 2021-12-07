@@ -12,18 +12,15 @@ namespace TeamWorkAlarmaq.Models
         [Required(ErrorMessage ="Campo Requerido!")]
         public string Title { get; set; }
 
-        [DisplayName("Descri��o")]
+        [DisplayName("Descrição")]
         public string Description { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
         [DisplayName("Data Abertura")]
         public DateTime DateInitial { get; set; } = DateTime.Now;
 
-        [DisplayName("Data Conclus�o")]
+        [DisplayName("Data Conclusão")]
         public DateTime DateEnd { get; set; }       
         public int ?User { get; set; }
-
-        [DisplayName("Descri��o")]
-        public string Comment { get; set; }
     }
 }
