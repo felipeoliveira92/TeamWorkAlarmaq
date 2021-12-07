@@ -14,7 +14,7 @@ namespace TeamWorkAlarmaq.Models
 
         [DisplayName("Descrição")]
         public string Description { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = "Aberto";
 
         [DisplayName("Data Abertura")]
         public DateTime DateInitial { get; set; } = DateTime.Now;
