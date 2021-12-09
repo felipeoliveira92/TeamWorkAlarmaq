@@ -1,7 +1,8 @@
+@using TeamWorkAlarmaq.Enum
 @model IEnumerable<TeamWorkAlarmaq.Models.Todo>
 
 @{
-    //Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -49,14 +50,24 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.Status)                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateInitial)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateEnd)
-            </td>
+
+            @if(item.Status == Estatus.Concluido.ToString())
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateEnd)
+                </td>
+            }
+            else{
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            }
+            
             <td>
                 @Html.DisplayFor(modelItem => item.User)
             </td>

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TeamWorkAlarmaq.Data;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace TeamWorkAlarmaq
 {
@@ -49,6 +51,14 @@ namespace TeamWorkAlarmaq
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            var supportedCultures = new[]{new CultureInfo("pt-BR")};
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("pt-BR", "pt-BR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
 
             app.UseAuthorization();
 

@@ -7,11 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TeamWorkAlarmaq.Data;
+using TeamWorkAlarmaq.Enum;
 using TeamWorkAlarmaq.Models;
 
 namespace TeamWorkAlarmaq
 {
-    [Authorize]
+    //[Authorize]
     public class TodoController : Controller
     {
         private readonly AplicationContext _context;
@@ -60,6 +61,7 @@ namespace TeamWorkAlarmaq
         {
             if (ModelState.IsValid)
             {
+                todo.DateEnd = DateTime.Now;
                 _context.Add(todo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,6 +101,19 @@ namespace TeamWorkAlarmaq
             {
                 try
                 {
+                    if(todo.Status == "1")
+                    {
+                        todo.Status = Estatus.Aberto.ToString();
+                    }
+                    else if(todo.Status == "2")
+                    {
+                        todo.Status = Estatus.Andamento.ToString();
+                    }
+                    else
+                    {
+                        todo.Status = Estatus.Concluido.ToString();
+                        todo.DateEnd = DateTime.Now;
+                    }
                     _context.Update(todo);
                     await _context.SaveChangesAsync();
                 }
